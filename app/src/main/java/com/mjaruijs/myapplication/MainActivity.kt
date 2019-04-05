@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun onStartClick() {
         Thread {
-            val client = Client("192.168.178.11", 8080)
+            val address = phone_address.text.toString()
+            val client = Client(address, 8080)
             client.write("START")
             client.close()
         }.start()
@@ -24,7 +25,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun onStopClick() {
         Thread {
-            val client = Client("192.168.178.11", 8080)
+            val address = phone_address.text.toString()
+            val client = Client(address, 8080)
             client.write("STOP")
             client.close()
         }.start()
